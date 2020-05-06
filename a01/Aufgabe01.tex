@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LaTeX Vorlage: ergebnisblatt_vorlage.tex                                   %%
+%% Dies ist eine Vorlage fuer die Ergebissblaetter zu den Praktikumsaufagben  %%
+%% der Vorlesung 'Einfuehrung in das Wissenschaftliche Rechnen'               %%
+%%                                                                            %%
+%% Version 2020-04-19, F. Castelli (IANM2, KIT)                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article}
+
+
+%% Pakete
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}   % Unix
+\usepackage[latin1]{inputenc} % Windows
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+\usepackage{amsmath,amssymb}
+
+
+%% Seitenlayout
+\usepackage[DIV=12]{typearea}
+\setlength{\parindent}{0em}
+
+
+%% Font Helvetica
+\renewcommand{\rmdefault}{phv}
+
+
+%% Titelinformationen
+\title{Einf\"uhrung in das Wissenschaftliche Rechnen\\
+  Praktikumsblatt 1\\
+  Aufgabe 1 (...)}
+\author{Vorname Nachname}
+\date{TT.MM.JJJJ}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+  
+  %% Titel
+  \maketitle
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \section*{Problemstellung}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  Beschreiben Sie hier das Problem.
+  
+  Text $a$,
+  \begin{align*}
+    a = b.
+  \end{align*}
+  
+  Zur verbesserten Kompatibilit\"at zwischen Betriebssystemen und
+  Zeichen-Kodierungen verwenden Sie f\"ur deutsche Sonderzeichen stets
+  \verb+\"A+, \verb+\"a+, \verb+\"O+, \verb+\"o+, \verb+\"u+, \verb+\"u+
+  sowie \verb+\ss{}+.
+  
+  Sollten Sie dennoch Probleme mit der Kodierung von deutschen Sonderzeichen
+  haben, schauen Sie nach, welche Einstellung Ihr Editor verwendet und passen
+  Sie die Option des 'inputenc' Pakets entsprechend an.
+  
+  Standardm\"a\ss{}ig ist in Editoren unter Windows 'latin1' (ISO 8859-1) und
+  unter Unix (Linux, Mac) 'utf8' eingestellt.
+  
+  
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \section*{Ergebnis}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  Beschreiben Sie hier das Ergebnis.
+  
+  %%----------------------------------------------------------------------------
+  %% Fuegen Sie hier einen Bild wie folgt ein:
+  %% - Speichern Sie das gewuenschte Bild im Ordner dieser TeX-Datei
+  %% - Entkommentieren Sie den Befehl \includegraphics[...]{...}
+  %% - Ersetzen Sie 'Bild_Dateiname' durch den Dateinamen des Bildes
+  %%----------------------------------------------------------------------------
+  \begin{figure}[ht]
+    \centering
+    % \includegraphics[width=0.5\textwidth]{Bild_Dateiname}
+    \caption{Bildunterschrift}
+  \end{figure}
+  
+  Text.
+  
+\end{document}

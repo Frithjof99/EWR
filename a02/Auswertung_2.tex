@@ -1,0 +1,109 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LaTeX Vorlage: ergebnisblatt_vorlage.tex                                   %%
+%% Dies ist eine Vorlage fuer die Ergebissblaetter zu den Praktikumsaufagben  %%
+%% der Vorlesung 'Einfuehrung in das Wissenschaftliche Rechnen'               %%
+%%                                                                            %%
+%% Version 2020-04-19, F. Castelli (IANM2, KIT)                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article}
+
+
+%% Pakete
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}   % Unix
+\usepackage[latin1]{inputenc} % Windows
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+\usepackage{amsmath,amssymb}
+
+
+%% Seitenlayout
+\usepackage[DIV=12]{typearea}
+\setlength{\parindent}{0em}
+
+
+%% Font Helvetica
+\renewcommand{\rmdefault}{phv}
+
+
+%% Titelinformationen
+\title{Einf\"uhrung in das Wissenschaftliche Rechnen\\
+  Praktikumsblatt 2\\
+  Aufgabe 2 (Konvergenzordnung)}
+\author{Lena Hilpp Matr.Nr.: 1941997\\Jan Frithjof Fleischhammer Matr.Nr.: 2115491}
+\date{06.05.2020}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+  
+  %% Titel
+  \maketitle
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \section*{Problemstellung}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  In dieser Aufgabe haben wir das Konvergenzverhalten des $\theta$-Euler-Verfahren
+  \begin{center}
+  	$y^{i+1}=y^i+\tau((1-\theta)f(t_i,y^i)+{\theta}f(t_{i+1},y^{i+1})$ f\"ur $\theta \in [0,1]$, $i = 0,1,...$
+  \end{center}
+  untersucht. Dabei haben wir folgende Verfahren verwendet:
+  \begin{itemize}
+  	\item explizites Eulerverfahren $(\theta = 0)$
+  	\item Crank-Nicolson-Verfahren $(\theta = 0.5)$
+  	\item implizites Eulerverfahren $(\theta = 1)$
+  \end{itemize}
+  
+  Wir wollen die experimentelle Konvergenzordnung (eoc = \underline{e}xperimental \underline{o}rder of \underline{c}onvergence) untersuchen. Als Test-Problem verwenden wir das Anfangswertproblem des \textit{Verhulst}-Modells zur Modellierung der Weltbev\"olkerung
+  \begin{align*}
+  	\tag{Verhulst}
+  	y'=y(d-ay)
+  \end{align*}
+  mit Parametern $d=2.9*10^{-2}$ und $a=2.941*10^{-3}$.
+  
+  Die exakte L\"osung ist dabei gegeben durch
+  \begin{align}
+  	y(t)=\frac{d/a}{1-C exp(-d(t-t_0))}
+  \end{align}
+  mit $C\approx -2.25$ und $t_0=1960$ f\"ur $t\geq1960$.
+  
+  \newpage
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \section*{Ergebnis}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{figure}
+\begin{tabular}{cc}
+  \includegraphics[width=0.45\textwidth]{Bild1-1} &   \includegraphics[width=0.45\textwidth]{Bild1-2} \\
+  \includegraphics[width=0.45\textwidth]{Bild1-3} &   \includegraphics[width=0.45\textwidth]{Bild1-4} \\
+  \includegraphics[width=0.45\textwidth]{Bild1-5} &   \includegraphics[width=0.45\textwidth]{Bild1-6} \\
+\end{tabular}
+\caption{L\"osungsverlauf f\"ur unterschiedliche Schrittweiten}
+\end{figure}
+
+In Abbildung 1 sieht man den Verlauf der numerischen L\"osungen im Vergleich zur exakten L\"osung.
+
+Wir speichern das Maximum \"uber den Fehler aller Zeitschritte
+\begin{align*}
+|E|_{\infty}:=\max_{i=1,...,N}|E_i|
+\end{align*}
+wobei
+\begin{align*}
+E_i:=y(t_i)-y^i
+\end{align*}
+der Fehler zwischen der Approximation $(y^i)_i$ und der exakten L\"osung $y$ ist.\\
+
+
+F\"ur die Konvergenzordnung ben\"otigen wir die Absch\"atzung
+\begin{align*}
+|E|_{\infty}{\leq} C{\tau}^p
+\end{align*}
+wobei p die Konvergenzordnung ist, $\tau$ die Schrittweite und $C$ eine Konstante ist, die nur von dem Intervall $I = [0,T]$, der Lipschitz-Konstanten $L_f$ der rechten Seite der DGL und der zweiten Ableitung der exakten L\"osung abh\"angt.\\
+
+Eine solche Absch\"atzung erh\"alt man durch das $eoctool$.
+  
+\end{document}
