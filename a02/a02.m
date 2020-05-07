@@ -128,3 +128,15 @@ figure(3);
 title("Time convergence history");
 legend('location','east')
 print('-f3','bild3','-dpng','-r100');
+
+aveoc = mean(eoc(2:end,1));
+avcst = mean(cst(2:end,1));
+fprintf('Zeitschätzung explizites Eulerverfahren: E = %5.2e * dt^{%5.2f}\n',avcst,aveoc);
+
+aveoc = mean(eoc(2:end,2));
+avcst = mean(cst(2:end,2));
+fprintf('Zeitschätzung Crank-Nicolson-Verfahren: E = %5.2e * dt^{%5.2f}\n',avcst,aveoc);
+
+aveoc = mean(eoc(2:end,3));
+avcst = mean(cst(2:end,3));
+fprintf('Zeitschätzung implizites Eulerverfahren: E = %5.2e * dt^{%5.2f}\n',avcst,aveoc);

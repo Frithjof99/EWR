@@ -16,7 +16,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
 \usepackage{amsmath,amssymb}
-
+\usepackage{caption}
 
 %% Seitenlayout
 \usepackage[DIV=12]{typearea}
@@ -46,18 +46,18 @@
   \section*{Problemstellung}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
-  In dieser Aufgabe haben wir das Konvergenzverhalten des $\theta$-Euler-Verfahren
+  In dieser Aufgabe habe wird das Konvergenzverhalten des $\theta$-Euler-Verfahren
   \begin{center}
-  	$y^{i+1}=y^i+\tau((1-\theta)f(t_i,y^i)+{\theta}f(t_{i+1},y^{i+1})$ f\"ur $\theta \in [0,1]$, $i = 0,1,...$
+  	$y^{i+1}=y^i+\tau((1-\theta)f(t_i,y^i)+{\theta}f(t_{i+1},y^{i+1})$  f\"ur $\theta \in [0,1]$, $i = 0,1,...$
   \end{center}
-  untersucht. Dabei haben wir folgende Verfahren verwendet:
+  untersucht. Dabei wurden folgende Verfahren verwendet:
   \begin{itemize}
   	\item explizites Eulerverfahren $(\theta = 0)$
   	\item Crank-Nicolson-Verfahren $(\theta = 0.5)$
   	\item implizites Eulerverfahren $(\theta = 1)$
   \end{itemize}
   
-  Wir wollen die experimentelle Konvergenzordnung (eoc = \underline{e}xperimental \underline{o}rder of \underline{c}onvergence) untersuchen. Als Test-Problem verwenden wir das Anfangswertproblem des \textit{Verhulst}-Modells zur Modellierung der Weltbev\"olkerung
+  Ziel ist es, die experimentelle Konvergenzordnung (eoc = \underline{e}xperimental \underline{o}rder of \underline{c}onvergence) zu bestimmen und mit theoretisch berechneten Werten zu vergleichen. Verwendet wurde das Anfangswertproblem des \textit{Verhulst}-Modells zur Modellierung der Weltbev\"olkerung
   \begin{align*}
   	\tag{Verhulst}
   	y'=y(d-ay)
@@ -68,7 +68,9 @@
   \begin{align}
   	y(t)=\frac{d/a}{1-C exp(-d(t-t_0))}
   \end{align}
-  mit $C\approx -2.25$ und $t_0=1960$ f\"ur $t\geq1960$.
+  mit $C\approx -2.25$ und $t_0=1960$ f\"ur $t\geq1960$.\\
+  
+  Da die exakte L\"osung bekannt ist, kann man den Fehler leicht bestimmen.
   
   \newpage
   
@@ -85,9 +87,9 @@
 \caption{L\"osungsverlauf f\"ur unterschiedliche Schrittweiten}
 \end{figure}
 
-In Abbildung 1 sieht man den Verlauf der numerischen L\"osungen im Vergleich zur exakten L\"osung.
+In Abbildung 1 sieht man den Verlauf der numerischen L\"osungen im Vergleich zur exakten L\"osung f\"ur unterschiedliche Schrittweiten $\tau$. Es ist erkennbar, dass mit kleiner werdender Schrittweite $\tau$ der Fehler zwischen exakter L\"osung und Approximation kleiner wird.\\
 
-Wir speichern das Maximum \"uber den Fehler aller Zeitschritte
+Das Maximum \"uber den Fehler aller Zeitschritte wird berechnet durch
 \begin{align*}
 |E|_{\infty}:=\max_{i=1,...,N}|E_i|
 \end{align*}
@@ -98,12 +100,99 @@ E_i:=y(t_i)-y^i
 der Fehler zwischen der Approximation $(y^i)_i$ und der exakten L\"osung $y$ ist.\\
 
 
-F\"ur die Konvergenzordnung ben\"otigen wir die Absch\"atzung
+Um die Konvergenzordnung zu bestimmen ben\"otigt man die Absch\"atzung
 \begin{align*}
 |E|_{\infty}{\leq} C{\tau}^p
 \end{align*}
 wobei p die Konvergenzordnung ist, $\tau$ die Schrittweite und $C$ eine Konstante ist, die nur von dem Intervall $I = [0,T]$, der Lipschitz-Konstanten $L_f$ der rechten Seite der DGL und der zweiten Ableitung der exakten L\"osung abh\"angt.\\
 
-Eine solche Absch\"atzung erh\"alt man durch das $eoctool$.
+Das Berechnungstool \textit{eoctool} lieft eine solche Absch\"atzung.\\
+
+\textit{eoctool} angewendet auf den Fehler ergibt die Werte aus Tabelle 1, welche in Abbildung 2 graphisch dargestellt sind.\\
+
+\def\EntryA{N}%
+\def\EntryB{expl. Euler}%
+\def\EntryC{eoc}%
+\def\EntryD{Crank-Nicolson}%
+\def\EntryE{eoc}%
+\def\EntryF{impli. Euler}%
+\def\EntryG{eoc}%
+\def\dec#1{{}_{#1}}%
+
+
+\begin{tabular}{|r|r|r|r|r|r|r|}
+\hline
+\EntryA&\EntryB&\EntryC&\EntryD&\EntryE&\EntryF&\EntryG\\
+\hline
+$  24$ & $ 1.17\dec{-1}$ & & $ 1.00\dec{-2}$ & & $ 1.08\dec{-1}$ &\\ 
+$  48$ & $ 5.71\dec{-2}$ & $ 1.03\dec{ 0}$ & $ 2.52\dec{-3}$ & $ 1.99\dec{ 0}$ & $ 5.50\dec{-2}$ & $ 0.98\dec{ 0}$\\ 
+$  96$ & $ 2.83\dec{-2}$ & $ 1.02\dec{ 0}$ & $ 6.31\dec{-4}$ & $ 2.00\dec{ 0}$ & $ 2.77\dec{-2}$ & $ 0.99\dec{ 0}$\\ 
+$ 192$ & $ 1.41\dec{-2}$ & $ 1.01\dec{ 0}$ & $ 1.58\dec{-4}$ & $ 2.00\dec{ 0}$ & $ 1.39\dec{-2}$ & $ 0.99\dec{ 0}$\\ 
+$ 384$ & $ 7.01\dec{-3}$ & $ 1.00\dec{ 0}$ & $ 3.96\dec{-5}$ & $ 2.00\dec{ 0}$ & $ 6.98\dec{-3}$ & $ 1.00\dec{ 0}$\\ 
+$ 768$ & $ 3.50\dec{-3}$ & $ 1.00\dec{ 0}$ & $ 9.96\dec{-6}$ & $ 1.99\dec{ 0}$ & $ 3.50\dec{-3}$ & $ 1.00\dec{ 0}$\\ 
+\hline
+\end{tabular}
+\captionof{table}{eoctool-Auswertung des Fehlers}
+\begin{figure}
+     \includegraphics[width=\textwidth]{Bild2}
+     \caption{Graphische Ausgabe des eoctool angewandt auf den Fehler}
+  \end{figure}
   
+  $ $\\
+Mit Durchschnittbildung erh\"alt man folgende Fehlerabsch\"atzungen:
+
+\begin{itemize}
+\item explizites Eulerverfahren: $E = 2.80 * \tau^{ 1.01}$
+\item Crank-Nicolson-Verfahren: $E = 5.70 * \tau^{ 2.00}$
+\item implizites Eulerverfahren: $E = 2.60 * \tau^{ 0.99}$
+\end{itemize}
+
+Theoretisch erh\"alt man f\"ur das $\theta$-Euler-Verfahren Konvergenzordnung 2 f\"ur $\theta=1/2$ und Konvergenzordnung 1 f\"ur $\theta\neq1/2$ (siehe Skript). Dies wird durch dieses Ergebnis best\"atigt.\\
+
+\textit{eoctool} kann man auch auf die Rechenzeit anwenden. Dabei erh\"alt man die Werte aus Tabelle 2, die in Abbildung 3 visualisiert werden.\\
+
+
+
+\def\EntryA{N}%
+\def\EntryB{expl. Euler}%
+\def\EntryC{eoc}%
+\def\EntryD{Crank-Nicolson}%
+\def\EntryE{eoc}%
+\def\EntryF{impli. Euler}%
+\def\EntryG{eoc}%
+\def\dec#1{{}_{#1}}%
+
+
+\begin{tabular}{|r|r|r|r|r|r|r|}
+\hline
+\EntryA&\EntryB&\EntryC&\EntryD&\EntryE&\EntryF&\EntryG\\
+\hline
+$  24$ & $ 7.25\dec{-4}$ & & $ 8.20\dec{-3}$ & & $ 6.51\dec{-3}$ &\\ 
+$  48$ & $ 2.01\dec{-4}$ & $ 1.85\dec{ 0}$ & $ 1.22\dec{-2}$ & $-0.57\dec{ 0}$ & $ 1.13\dec{-2}$ & $-0.79\dec{ 0}$\\ 
+$  96$ & $ 3.93\dec{-5}$ & $ 2.35\dec{ 0}$ & $ 2.32\dec{-2}$ & $-0.93\dec{ 0}$ & $ 2.27\dec{-2}$ & $-1.01\dec{ 0}$\\ 
+$ 192$ & $ 4.50\dec{-5}$ & $-0.20\dec{ 0}$ & $ 4.63\dec{-2}$ & $-0.99\dec{ 0}$ & $ 4.36\dec{-2}$ & $-0.94\dec{ 0}$\\ 
+$ 384$ & $ 6.00\dec{-5}$ & $-0.42\dec{ 0}$ & $ 8.64\dec{-2}$ & $-0.90\dec{ 0}$ & $ 9.07\dec{-2}$ & $-1.06\dec{ 0}$\\ 
+$ 768$ & $ 8.37\dec{-5}$ & $-0.48\dec{ 0}$ & $ 1.75\dec{-1}$ & $-1.02\dec{ 0}$ & $ 1.73\dec{-1}$ & $-0.93\dec{ 0}$\\ 
+\hline
+\end{tabular}
+\captionof{table}{eoctool-Auswertung f\"ur die Rechenzeit}
+\begin{figure}
+	\includegraphics[width=\textwidth]{Bild3}
+     \caption{Graphische Ausgabe des eoctool angewandt auf die Rechenzeit}
+\end{figure}
+
+Wenn man wieder den Durchschnitt \"uber diese Daten bildet ergibt sich das folgende Rechenzeitverhalten:
+\begin{itemize}
+\item explizites Eulerverfahren: $E = 1.85*10^4 * \tau^{ 0.91}$
+\item Crank-Nicolson-Verfahren: $E = 3.13*10^{-3} * \tau^{-0.70}$
+\item implizites Eulerverfahren: $E = 1.35*10^{-3} * \tau^{-0.95}$
+
+\end{itemize}
+
+Laut diesen Daten ist die Rechenzeit des expliziten Eulerverfahrens proportional zur Schrittweite, also je kleiner die Schrittweite, desto k\"urzer die Rechenzeit, was nicht stimmt.\\
+
+ Wenn man die Werte der Tabelle aber genauer ansieht, sieht man, dass sie anfangs sehr gro\ss\ sind und dann negativ werden. Dies kann man dadurch erkl\"aren, dass bei kurzen Berechnungen programmunabh\"angige Berechnungen einen gr\"o\ss eren Einfluss haben, wie zum Beispiel die Zeitmessung selbst.\\
+ 
+ Insgesamt erwartet man, dass die Zeitberechnung aller Verfahren proportional zu $\tau^{-1}$ bzw zu der Anzahl der Schritt $N\approx\frac{1}{\tau}$ ist, da f\"ur jeden Schritt die selbe Berechnung durchgef\"uhrt werden muss, welche unabh\"angig von der Schrittweite ist. Das ist bei dem impliziten Eulerverfahren und dem Crank-Nicolson-Verfahren erkennbar.\\
+
 \end{document}
