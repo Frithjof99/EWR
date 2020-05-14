@@ -38,11 +38,6 @@ fprintf("Starte Berechnung\n");
 
 figure(1);
 clf;
-hold on;
-
-
-
-hold off;
 
 for cycle = 1:n_cycles
     
