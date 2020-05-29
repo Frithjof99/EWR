@@ -84,35 +84,9 @@ ylabel("Bevölkerung", "FontSize", 14);
 print('-f2','bild2-1','-dpng','-r800');
 
 
-figure(3);
-clf;
-hold on;
-plot(t*dT,S(16,t));
-plot(t*dT,I(16,t));
-plot(t*dT,R(16,t));
-hold off;
-legend("Anfällig", "Infiziert", "Erholte", "FontSize", 14);
-xlabel("Zeit", "FontSize", 14);
-ylabel("Bevölkerung", "FontSize", 14);
-title("Stadtteil 16", "FontSize", 14);
+fi
 
 
-print('-f3','bild5-1','-dpng','-r400');
-
-figure(4);
-clf;
-hold on;
-plot(t*dT,S(17,t));
-plot(t*dT,I(17,t));
-plot(t*dT,R(17,t));
-hold off;
-legend("Anfällig", "Infiziert", "Erholte", "FontSize", 14);
-xlabel("Zeit", "FontSize", 14);
-ylabel("Bevölkerung", "FontSize", 14);
-title("Stadtteil 17", "FontSize", 14);
-
-
-print('-f4','bild5-2','-dpng','-r400');
 
 I_max = max(I);
 
@@ -125,7 +99,7 @@ for i = 1:size(h,2)
     clf;
     DrawMapFrame(I(:,h(i)), I_max, Stadtteile);
     title(num2str(h(i)),"FontSize", 20);
-    %print('-f1',['bild1-' num2str(h(i))],'-dpng','-r400'); %speichert ein Bild
+    print('-f1',['bild1-' num2str(h(i))],'-dpng','-r400'); %speichert ein Bild
     %pro Zeitschritt
     
     pause(0.0);

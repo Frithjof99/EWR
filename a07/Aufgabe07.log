@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.1)  29 MAY 2020 02:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.1)  29 MAY 2020 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -323,15 +323,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
-[1
 
-{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 82--84
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
+[1
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
@@ -341,101 +341,116 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--89
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
-<bild2-1.png, id=14, 642.93199pt x 630.10406pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+<bild2-1.png, id=14, 639.13782pt x 283.02739pt>
 File: bild2-1.png Graphic file (type png)
 <use bild2-1.png>
-Package pdftex.def Info: bild2-1.png  used on input line 103.
-(pdftex.def)             Requested size: 358.50612pt x 351.3656pt.
-<bild1-1.png, id=15, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild2-1.png  used on input line 107.
+(pdftex.def)             Requested size: 358.50612pt x 158.75769pt.
+<bild5-1.png, id=15, 639.22815pt x 283.11772pt>
+File: bild5-1.png Graphic file (type png)
+<use bild5-1.png>
+Package pdftex.def Info: bild5-1.png  used on input line 113.
+(pdftex.def)             Requested size: 201.65755pt x 89.31215pt.
+<bild5-2.png, id=16, 639.22815pt x 283.11772pt>
+File: bild5-2.png Graphic file (type png)
+<use bild5-2.png>
+Package pdftex.def Info: bild5-2.png  used on input line 114.
+(pdftex.def)             Requested size: 201.65755pt x 89.31215pt.
+<bild1-1.png, id=17, 639.22815pt x 283.11772pt>
 File: bild1-1.png Graphic file (type png)
 <use bild1-1.png>
-Package pdftex.def Info: bild1-1.png  used on input line 109.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild1-10.png, id=16, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild1-1.png  used on input line 121.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild1-10.png, id=18, 639.22815pt x 283.11772pt>
 File: bild1-10.png Graphic file (type png)
 <use bild1-10.png>
-Package pdftex.def Info: bild1-10.png  used on input line 110.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild1-20.png, id=17, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild1-10.png  used on input line 122.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild1-20.png, id=19, 639.22815pt x 283.11772pt>
 File: bild1-20.png Graphic file (type png)
 <use bild1-20.png>
-Package pdftex.def Info: bild1-20.png  used on input line 111.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild1-30.png, id=18, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild1-20.png  used on input line 123.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild1-30.png, id=20, 639.22815pt x 283.11772pt>
 File: bild1-30.png Graphic file (type png)
 <use bild1-30.png>
-Package pdftex.def Info: bild1-30.png  used on input line 112.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild1-40.png, id=19, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild1-30.png  used on input line 124.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild1-40.png, id=21, 639.22815pt x 283.11772pt>
 File: bild1-40.png Graphic file (type png)
 <use bild1-40.png>
-Package pdftex.def Info: bild1-40.png  used on input line 113.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild1-50.png, id=20, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild1-40.png  used on input line 125.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild1-50.png, id=22, 639.22815pt x 283.11772pt>
 File: bild1-50.png Graphic file (type png)
 <use bild1-50.png>
-Package pdftex.def Info: bild1-50.png  used on input line 114.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild1-60.png, id=21, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild1-50.png  used on input line 126.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild1-60.png, id=23, 639.22815pt x 283.11772pt>
 File: bild1-60.png Graphic file (type png)
 <use bild1-60.png>
-Package pdftex.def Info: bild1-60.png  used on input line 115.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild1-70.png, id=22, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild1-60.png  used on input line 127.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild1-70.png, id=24, 639.22815pt x 283.11772pt>
 File: bild1-70.png Graphic file (type png)
 <use bild1-70.png>
-Package pdftex.def Info: bild1-70.png  used on input line 116.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild1-80.png, id=23, 642.84164pt x 630.1944pt>
+Package pdftex.def Info: bild1-70.png  used on input line 128.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild1-80.png, id=25, 639.22815pt x 283.11772pt>
 File: bild1-80.png Graphic file (type png)
 <use bild1-80.png>
-Package pdftex.def Info: bild1-80.png  used on input line 117.
-(pdftex.def)             Requested size: 134.44064pt x 131.79662pt.
-<bild3-1.png, id=24, 642.93199pt x 630.10406pt>
+Package pdftex.def Info: bild1-80.png  used on input line 129.
+(pdftex.def)             Requested size: 134.44064pt x 59.54286pt.
+<bild3-1.png, id=26, 642.93199pt x 630.10406pt>
 File: bild3-1.png Graphic file (type png)
 <use bild3-1.png>
-Package pdftex.def Info: bild3-1.png  used on input line 123.
+Package pdftex.def Info: bild3-1.png  used on input line 135.
 (pdftex.def)             Requested size: 224.06548pt x 219.59749pt.
-<bild4-1.png, id=25, 642.93199pt x 630.10406pt>
+<bild4-1.png, id=27, 642.93199pt x 630.10406pt>
 File: bild4-1.png Graphic file (type png)
 <use bild4-1.png>
-Package pdftex.def Info: bild4-1.png  used on input line 128.
+Package pdftex.def Info: bild4-1.png  used on input line 140.
 (pdftex.def)             Requested size: 224.06548pt x 219.59749pt.
-[2] [3 <./bild2-1.png (PNG copy)>] [4 <./bild1-1.png (PNG copy)> <./bild1-10.pn
-g (PNG copy)> <./bild1-20.png (PNG copy)> <./bild1-30.png (PNG copy)> <./bild1-
-40.png (PNG copy)> <./bild1-50.png (PNG copy)> <./bild1-60.png (PNG copy)> <./b
-ild1-70.png (PNG copy)> <./bild1-80.png (PNG copy)>] [5 <./bild3-1.png (PNG cop
-y)> <./bild4-1.png (PNG copy)>] (./Aufgabe07.aux) ) 
+[2 <./bild2-1.png (PNG copy)>] [3 <./bild5-1.png (PNG copy)> <./bild5-2.png (PN
+G copy)> <./bild1-1.png (PNG copy)> <./bild1-10.png (PNG copy)> <./bild1-20.png
+ (PNG copy)> <./bild1-30.png (PNG copy)> <./bild1-40.png (PNG copy)> <./bild1-5
+0.png (PNG copy)> <./bild1-60.png (PNG copy)> <./bild1-70.png (PNG copy)> <./bi
+ld1-80.png (PNG copy)> <./bild3-1.png (PNG copy)>] [4 <./bild4-1.png (PNG copy)
+>] (./Aufgabe07.aux) ) 
 Here is how much of TeX's memory you used:
- 5725 strings out of 480682
- 84224 string characters out of 5908554
- 363558 words of memory out of 5000000
- 21454 multiletter control sequences out of 15000+600000
+ 5739 strings out of 480682
+ 84416 string characters out of 5908554
+ 364558 words of memory out of 5000000
+ 21468 multiletter control sequences out of 15000+600000
  555479 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,15n,47p,394b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/
-fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
-<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fo
-nts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/h
-elvetic/uhvr8a.pfb>
-Output written on Aufgabe07.pdf (5 pages, 3977457 bytes).
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<
+c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texliv
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2020/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvb8a
+.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on Aufgabe07.pdf (4 pages, 3082011 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -64,7 +64,7 @@
   N_i^{tot}=\sum_{m=1}^{27}\Phi_{mi}N_m
   \end{align*}
   die Anzahl der Personen, die im Stadtteil i arbeiten.\\
-  Damit erh\"alt man vollendes Differenzialgleichungssystem:
+  Damit erh\"alt man folgendes Differenzialgleichungssystem:
   \begin{align*}
   \begin{split}
   \partial_tS_i(t)&=-\sum_{j=1}^{27}\sum_{k=1}^{27}\beta\Phi_{ij}S_i(t)\frac{\Phi_{kj}I_k(t)}{N_j^{tot}}\\
@@ -73,19 +73,23 @@
   \end{split}
   \end{align*}
   
-Dabei beschreibt der Term $\Phi_{ij}S_i(t)$ die Zahl der anf\"alligen Personen aus Stadtteil $i$, die in Stadtteil $j$ arbeiten und der Term $\Phi_{kj}I_k(t)$ die Zahl der infizierten Personen aus Stadtteil $k$, die in Stadtteil $j$ arbeiten.
+Dabei beschreibt der Term $\Phi_{ij}S_i(t)$ die Zahl der anf\"alligen Personen aus Stadtteil $i$, die in Stadtteil $j$ arbeiten und der Term $\Phi_{kj}I_k(t)$ die Zahl der infizierten Personen aus Stadtteil $k$, die in Stadtteil $j$ arbeiten.\\
+
+Am Anfang wird von 200 Infektionen in Stadtteil 16 ausgegangen.
   
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \section*{Ergebnis}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
   Zun\"achst wurde eine Krankheit mit $\beta = 0.5$ und $\gamma = 0.25$ betrachtet.\\
-  Zum L\"osen wird das explizite Eulerverfahren mit Schrittweite $1$.\\
+  Zum L\"osen wird das explizite Eulerverfahren mit Schrittweite $1$ verwendet.\\
   
 
 In Abbildung 1 sieht man den Verlauf der L\"osung, wobei $I=\sum_{i=1}^{27}I_i$, S und R analog.\\
 
-In Abbildung 2 ist der r\"aumliche Verlauf der Krankheit dargestellt.\\
+In Abbildung 2 sieht man den Verlauf der L\"osung f\"ur zwei ausgew\"ahlte Bezirke.
+
+In Abbildung 3 ist der r\"aumliche Verlauf der Krankheit dargestellt.\\
 
 Man sieht, dass die Zahl der Gesamtbev\"olkerung konstant bleibt, was Sinn macht, denn durch Zusammenaddieren des Differentialgleichungssystems erh\"alt man
 
@@ -95,14 +99,22 @@ Man sieht, dass die Zahl der Gesamtbev\"olkerung konstant bleibt, was Sinn macht
 
 wobei $N(t)$ die Gesamtbev\"olkerungszahl ist.\\
 
-Nun betrachtet man einen anderen Krankheitserreger mit $\beta = 3.75$ und $\gamma = 0.25$ (etwa Masern ohne Impfungen). Unter Verwendung der gleichen Mathode erh\"alt man Abbildung 3.\\
+Nun betrachtet man einen anderen Krankheitserreger mit $\beta = 3.75$ und $\gamma = 0.25$ (etwa Masern ohne Impfungen). Unter Verwendung der gleichen Mathode erh\"alt man Abbildung 4.\\
 
-Die Infiziertenzahl wird schnell stark negativ, was nicht dem Modell entspricht. Dies liegt daran, dass es sich um ein steifes Problem handelt und ein expliziter L\"oser verwendet wurde. Um dieses Problem zu beheben k\"onnte man entweder einen impliziten L\"oser verwenden, oder die Schrittweite verkleinern. Das Ergebnis mit Schrittweite $0.1$ sieht man in Abbildung 4.
+Die Infiziertenzahl wird schnell stark negativ, was nicht dem Modell entspricht. Dies liegt daran, dass es sich um ein steifes Problem handelt und ein expliziter L\"oser verwendet wurde. Um dieses Problem zu beheben k\"onnte man entweder einen impliziten L\"oser verwenden, oder die Schrittweite verkleinern. Das Ergebnis mit Schrittweite $0.1$ sieht man in Abbildung 5.
   
 \begin{figure}
 \includegraphics[width=0.8\textwidth]{bild2-1}
 \caption{Verlauf der L\"osung}
 \end{figure}  
+
+\begin{figure}
+\begin{tabular}{cc}
+  \includegraphics[width=0.45\textwidth]{bild5-1} &
+\includegraphics[width=0.45\textwidth]{bild5-2} \\
+\end{tabular}
+\caption{Verlauf der Krankheit f\"ur ausgew\"ahlte Bezirke}
+\end{figure}
 
 \begin{figure}
 \begin{tabular}{ccc}
