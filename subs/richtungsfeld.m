@@ -6,10 +6,9 @@ function r = richtungsfeld(bsp)
 %    r ... STRUCT; Beispiel als Struktur
 % BESCHREIBUNG:
 % M-file zur Erzeugung eines Richtungsfeldes.
-% Fuer die eingegebene Struktur wird das Richtungfeld der Differential-
-% gleichung berechnet und zu einem gegebenen Anfangswert die (numerische)
-% Loesung eingezeichnet. Ohne Argument wird eine Defaultstruktur
-% zurueckgeliefert.
+% Fuer die eingegebene Struktur wird das Richtungfeld der Differentialgleichung
+% berechnet und zu einem gegebenen Anfangswert die (numerische) Loesung
+% eingezeichnet. Ohne Argument wird eine Defaultstruktur zurueckgeliefert.
 % Die Attribute der Struktur bsp sind:
 %    func       Funktionspointer (t,y) \in IRxIR |-> f(t,y) \in IR
 %    tmin,tmax  Zeitintervall
@@ -27,7 +26,7 @@ switch nargin
 case 0% Rueckgabe einer Defaultstruktur
    r = struct('func',@(t,y) t.^2-1,'tmin',-2.5,'tmax',2.5, ...
               'ymin',-3,'ymax',3,'y0',-2.2,'N',20,'scale',1);
-   return;
+   return
 case 1% Entpacken
    f = bsp.func;   % Die rechte Seite der ODE
    tmin = bsp.tmin;% Rechteck [tmin,tmax] x [ymin,ymax]
@@ -37,11 +36,12 @@ case 1% Entpacken
    y0 = bsp.y0;    % Anfangswert
    N  = bsp.N;     % Aufloesung
    r  = bsp;       % Return
-   sc = bsp.scale  % Skalierung der Richtungen
+   sc = bsp.scale; % Skalierung der Richtungen
 otherwise
    error('*** Falsche Anzahl von Parametern ***');
 end
-fprintf('\nProgramm richtungsfeld\n');tic
+fprintf('\nProgramm richtungsfeld\n');
+tic
 
 %% Sammle Daten
 %%% Variante 1: Explizite Schleife
@@ -74,4 +74,5 @@ plot(t,y,'k-','LineWidth',2);
 hold off;
 
 %% Ende
-fprintf('Fertig\n');toc
+fprintf('Fertig\n');
+toc

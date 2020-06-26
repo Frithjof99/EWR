@@ -1,5 +1,6 @@
 function [eoc,cst] = eoctool(NN,EE,gm,eocfac,legstr,outfile)
-%% Call: [eoc,cst] = eoctool(NN,EE,gm,eocfac,legstr,outfile);
+%% Call 1: [eoc,cst] = eoctool(NN,EE,gm,eocfac,legstr,outfile);
+%% Call 2: [eoc,cst] = eoctool(NN,EE,eocopt);
 % INPUT:
 %    NN ... (N,1); Number of 'unknowns'.
 %    EE ... (N,M); Matrix of 'errors' (arbitrary M; <= 4 reasonable).
@@ -7,9 +8,13 @@ function [eoc,cst] = eoctool(NN,EE,gm,eocfac,legstr,outfile)
 %           datapoints) [DEF 2].
 %    eocfac ... INT; To scale the eoc result (see below) [DEF 1].
 %    legstr ... CELL; Legend in graphical output [DEF empty].
-%    outfile ... INT/CHAR; TEX-table on screen/in this file,
-%                case INT: file id; case CHAR: file name, '': screen
+%    outfile ... INT/CHAR; TEX-table on screen/in this file.
+%                Case INT: file id; case CHAR: file name, '': screen
 %                [DEF no output].
+%    eocopt ... STRUCT; Fieldnames 'gm', 'eocfac', 'legstr', 'outfile',
+%               'k0' with meaning and settings as above. Int 'k0' (0...12)
+%               adresses a line- and marker style. Get all DEF by calling
+%               eocopt = eoctool();
 % OUTPUT:
 %    eoc, cst ... DOUBLE(N,M); eoc and constant values.
 %    Error constants as in (*) below in a formatted table.
@@ -24,26 +29,18 @@ function [eoc,cst] = eoctool(NN,EE,gm,eocfac,legstr,outfile)
 % for some set l. eoc is usually called experimental order of convergence
 % (EOC). Often one likes to present dependence on 'h:=NN^{1/spacedim}'. In
 % this case use 'eocfac=spacedim'.
-%%
 
 % Author: W. Doerfler, Karlsruhe Institute of Technology.
-% Last modified: 12.12.2015.
-% W. Doerfler.  1.0: 05.04.2002 (Matlab 6.1.0450).
-%               2.0: 17.08.2002.
-%               3.0: 04.09.2003.
-%               4.0: 05.10.2010/25.04.2011.
-%               5.0: 03.04.2013.
-%               6.0: 15.09.2014.
-%               7.0: 18.12.2015.
+% Last modified: 10.04.2018, 30.04.2020.
+%%
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Collection of some further settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 intform = '%4';% Integer-Format for NN (omit 'd')
 floatform = '%5.2';% Float-Format for EE (omit 'f' or 'e')
-%floatformE = '%5.2';% Float-Format for eoc (omit 'f' or 'e')
-str= {'k-o','k--o','k-.o','k:o','b-*','b--*','b-.*','b:*', ...
-      'g-x','g--x','g-.x','g:x'};% Linestyle in plot (for <= 12 items)
+str = {'k-o','k--o','k-.o','k:o','b-*','b--*','b-.*','b:*', ...
+       'g-x','g--x','g-.x','g:x'};% Linestyle in plot (for <= 12 items)
 lw = 2;% LineWidth in plot
 ms = 6;% MarkerSize in plot
 fsL = 12;% FontSize Label
@@ -55,31 +52,39 @@ fsA = 12;% FontSize Axis
 % Analyse input
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 switch nargin
-case 2,
-   gm= 2; eocfac= 1; useleg= 0; out= 0;
-   %disp('*** Warning in eoctool.m *** Defaults for arg3 - arg6 set');
-case 3,
-   eocfac= 1; useleg= 0; out= 0;
-   %disp('*** Warning in eoctool.m *** Defaults for arg4 - arg6 set');
-case 4,
-   useleg= 0; out= 0;
-   %disp('*** Warning in eoctool.m *** Defaults for arg5 - arg6 set');
-case 5,
-   useleg= 1; 
+case 0
+   eoc = struct('gm',2,'eocfac',1,'legstr',[],'outfile',[],'k0',0);
+   return
+case 2
+   gm= 2; eocfac= 1; useleg= 0; out= 0; k0= 0;
+case 3
+   if isstruct(gm)
+      eocfac= gm.eocfac;
+      legstr= gm.legstr; if isempty(legstr), useleg= 0; end
+      outfile= gm.outfile; if isempty(outfile), out= 0; end
+      k0 = gm.k0;
+      gmn = gm.gm; clear gm; gm = gmn; clear gmn;
+   else
+      eocfac= 1; useleg= 0; out= 0; k0= 0;
+   end
+case 4
+   useleg= 0; out= 0; k0= 0;
+case 5
+   useleg= 1; k0= 0;
    if strcmp(char(legstr),''), useleg= 0; end 
    out= 0;
-   %disp('*** Warning in eoctool.m *** Default for arg6 set');
-case 6,
+case 6
    useleg= 1; if strcmp(char(legstr),''), useleg= 0; end
+   k0= 0;
    if ischar(outfile)
       if strcmp(outfile,''), out= 1; else out= 2; end
    else
       if isnumeric(outfile), out= 3; end
    end
-otherwise,
+otherwise
    disp('   CALL eoctool(NN,EE,gm,eocfac,legstr,outfile)');
    disp('   At least ''NN,EE'' required');
-   return;
+   return
 end
 nn = length(NN); mm = size(EE,2);
 gmN = min(max(gm,2),nn);
@@ -108,7 +113,7 @@ if st>0
    for k=1:mm
       if useleg==0, fprintf('Data %d\n',k);
       else fprintf('Data %d : %s\n',k,legstr{k}); end
-      fprintf('  l \t   e_l \t\t cst_l \t\t eoc_l\n');
+      fprintf('  k \t   e_k \t\t cst_k \t\t eoc_k\n');
       for ll=1:st
          lt = ll+gm-1;
          [est,cst(lt,k),eoc(lt,k)] ...
@@ -126,7 +131,7 @@ end
 % Show graphical output
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 for k=1:mm
-   plot(log10(NN),log10(EE(:,k)),char(str(k)), ...
+   plot(log10(NN),log10(EE(:,k)),char(str(k+k0)), ...
         'LineWidth',lw,'MarkerSize',ms);
    hold on;
 end
@@ -168,7 +173,7 @@ end
 % Write
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 switch out
-case 1,% Show it on the workspace
+case 1% Show it on the workspace
   fprintf('\nTEX-output from eoctool (edit \\def''s) %s\n\n',date);
   fprintf('\\def%s{N}%% N input\n',strcat('\Entry',char(65)));
   for k=1:mm
@@ -185,13 +190,12 @@ case 1,% Show it on the workspace
   end
   for ll=gm:nn
      ee(1:2:2*mm-1)= EE(ll,:); ee(2:2:2*mm)= eoc(ll,:);
-     %lz= floor(log10(ee)); z= ee./10.^lz;
      lz= zeros(1,2*mm); lz(1:2:2*mm-1)= floor(log10(ee(1:2:2*mm-1)));
      z = ee./10.^lz;
      fprintf(strcat(sD,'\\\\ \n'),NN(ll),reshape([z;lz],4*mm,1));
   end
   fprintf('\\hline\n\\end{tabular}\n\n');
-case {2,3},% Store it in a file
+case {2,3}% Store it in a file
   if out==2% Given filename
      fl= fopen(outfile,'w');
      fprintf('\nStored TEX-output in file "%s"\n\n',outfile);
@@ -215,7 +219,6 @@ case {2,3},% Store it in a file
   end
   for ll=gm:nn
      ee(1:2:2*mm-1)= EE(ll,:); ee(2:2:2*mm)= eoc(ll,:);
-     %lz= floor(log10(ee)); z= ee./10.^lz;
      lz= zeros(1,2*mm); lz(1:2:2*mm-1)= floor(log10(ee(1:2:2*mm-1)));
      z = ee./10.^lz;
      fprintf(fl,strcat(sD,'\\\\ \n'),NN(ll),reshape([z;lz],4*mm,1));

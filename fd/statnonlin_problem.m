@@ -41,7 +41,8 @@ fprintf(' Newtonresidual: %7.4e\n',norm(fu,2));
 %% Loesung graphisch darstellen
 figure(2); clf
    fdplot(grd,uh,gopt);
-   title('Numerische Loesung');
+   t = title(['Numerische Loesung (lambda = ' num2str(lambda) ')']);
+   t.FontSize = 25;
 drawnow
 
 %% Ggf Fehler berechnen
